@@ -49,29 +49,17 @@ public class RegDemo extends HttpServlet {
 		PrintWriter pw=response.getWriter();
 		String na=request.getParameter("na");
 		int age=Integer.parseInt(request.getParameter("ag"));
-		//String ct=request.getParameter("cty");
-		//String una=request.getParameter("una");
 		String pwd=request.getParameter("pwd");
 		
 		try{
 			  Class.forName("oracle.jdbc.driver.OracleDriver");
 			  Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "shaikh sadi", "01960171418");
-			 // Connection con=DataConn.getConn();
-			//Context initContext = new InitialContext();
-			//Context envContext = (Context) initContext.lookup("java:comp/env");
-			//DataSource ds = (DataSource) envContext.lookup("jdbc/MyDB");
-			//Connection con = ds.getConnection();
-				//ServletContext sc=getServletContext();
-				//Connection con=(Connection)sc.getAttribute("myconn");
 			  PreparedStatement ps=con.prepareStatement("insert into STUDENT_REG values(?,?,?)");
 			  ps.setString(1, na);
 			  ps.setInt(2,age);
 			  pw.println("<font color=red size=5>clear</font>");
-			 // ps.setString(3, ct);
-			 // ps.setString(4, una);
 			  ps.setString(3, pwd);
 			  ps.execute();
-			  //pw.println("Inserted....");
 			  pw.println("<font color=red size=5>Registration Successfully...</font>");
 			  RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");
 			  rd.include(request, response);

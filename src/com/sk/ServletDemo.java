@@ -49,7 +49,6 @@ public class ServletDemo extends HttpServlet {
 		  out.println("</BODY>");
 		  out.println("</HTML>");
 		PrintWriter pw=response.getWriter();
-		//PrintWriter pw=response.getWriter();
 		HttpSession hs=request.getSession();
 		Cookie co[]=request.getCookies();		
 		for(Cookie pri:co)

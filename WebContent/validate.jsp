@@ -16,15 +16,11 @@
 		<%
 			una=request.getParameter("username");
 			pwd=request.getParameter("password");
-			//session.setAttribute("us", una);
-			//Cookie co=new Cookie("user","Raffic");
-			//response.addCookie(co);
 			
 			try{
 				 Class.forName("oracle.jdbc.driver.OracleDriver");
 				 Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "SHAIKH SADI", "01960171418");
 				 ServletContext sc=getServletContext();
-				// Connection con=//(Connection)sc.getAttribute("myconn");
 				 PreparedStatement ps=con.prepareStatement("select * from STUDENT_REG where NAME=? and PASS=?");
 				 ps.setString(1,una);
 				 ps.setString(2,pwd);

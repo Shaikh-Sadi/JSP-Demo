@@ -27,13 +27,10 @@ public class ListDemo implements ServletContextListener
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "SHAIKH SADI", "01960171418");
-			//Context initContext = new InitialContext();
-			//Context envContext = (Context) initContext.lookup("java:comp/env");
-			//DataSource ds = (DataSource) envContext.lookup("jdbc/MyDB");
-			//con = ds.getConnection();
+			
 			ServletContext sc=sce.getServletContext();
 			sc.setAttribute("myconn", con);
-			//JOptionPane.showMessageDialog(null, "Contect Added..");
+		
 		}catch(Exception ex)
 		{
 			System.out.println("Error in ListDemo::"+ex);
